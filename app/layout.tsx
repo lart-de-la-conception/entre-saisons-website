@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bodoni_Moda, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SiteFooter from "./components/SiteFooter";
 
-const geistSans = Geist({
+const bodoni = Bodoni_Moda({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -25,9 +27,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${bodoni.variable} ${geistMono.variable} antialiased`}
       >
+        <header className="w-full bg-white">
+          <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-center">
+            <div className="flex flex-col items-center">
+              <div className="mt-4 text-2xl tracking-normal text-[#0f1a2b]">
+                Entre Saisons
+              </div>
+              <div className="mt-1 text-xs text-[#0f1a2b]/70">© 2026</div>
+            </div>
+          </div>
+        </header>
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
