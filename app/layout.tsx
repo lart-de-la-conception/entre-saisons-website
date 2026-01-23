@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bodoni_Moda, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SiteFooter from "./components/SiteFooter";
+import Link from "next/link";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-geist-sans",
@@ -32,10 +33,10 @@ export default function RootLayout({
         <header className="w-full bg-white">
           <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-center">
             <div className="flex flex-col items-center">
-              <div className="mt-4 text-2xl tracking-normal text-[#0f1a2b]">
+              <Link href="/" className="mt-4 text-2xl tracking-normal text-[#0f1a2b]">
                 Entre Saisons
-              </div>
-              <div className="mt-1 text-xs text-[#0f1a2b]/70">© 2026</div>
+              </Link>
+              <div className="mt-1 text-[10px] text-[#0f1a2b]/70">© 2026</div>
             </div>
           </div>
         </header>
