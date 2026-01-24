@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { products } from "../data";
 import Link from "next/link";
+import AddToCartSection from "../../components/AddToCartSection";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -50,10 +51,12 @@ export default async function ProductDetail({ params }: PageProps) {
             />
           </section>
 
-          <aside className="order-3 flex md:justify-end md:self-center">
-            <button className="inline-flex items-center rounded-sm bg-black px-5 py-3 text-xs font-semibold uppercase tracking-wide text-white">
-              Add to Cart{product.price ? ` — ${product.price}` : ""}
-            </button>
+          <aside className="order-3 md:self-center">
+            <AddToCartSection
+              slug={product.slug}
+              name={product.name}
+              priceLabel={product.price}
+            />
           </aside>
         </div>
       </div>

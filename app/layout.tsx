@@ -3,6 +3,9 @@ import { Bodoni_Moda, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SiteFooter from "./components/SiteFooter";
 import Link from "next/link";
+import { CartProvider } from "./components/CartContext";
+import CartDrawer from "./components/CartDrawer";
+import HeaderCartButton from "./components/HeaderCartButton";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-geist-sans",
@@ -27,21 +30,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${bodoni.variable} ${geistMono.variable} antialiased`}
-      >
-        <header className="w-full bg-white">
-          <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-center">
-            <div className="flex flex-col items-center">
-              <Link href="/" className="mt-4 text-2xl tracking-normal text-[#0f1a2b]">
-                Entre Saisons
-              </Link>
-              <div className="mt-1 text-[10px] text-[#0f1a2b]/70">© 2026</div>
+      <body className={`${bodoni.variable} ${geistMono.variable} antialiased`}>
+        <CartProvider>
+          <header className="relative w-full bg-white">
+            <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-center">
+              <div className="flex flex-col items-center">
+                <Link href="/" className="mt-4 text-2xl tracking-normal text-[#0f1a2b]">
+                  Entre Saisons
+                </Link>
+                <div className="mt-1 text-[10px] text-[#0f1a2b]/70">© 2026</div>
+              </div>
             </div>
-          </div>
-        </header>
-        {children}
-        <SiteFooter />
+            <div className="absolute right-6 top-1/2 -translate-y-1/2">
+              <HeaderCartButton />
+            </div>
+          </header>
+          {children}
+          <CartDrawer />
+          <SiteFooter />
+        </CartProvider>
       </body>
     </html>
   );
