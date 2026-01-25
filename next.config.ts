@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "media.entresaisons.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+        pathname: "/**",
+      },
     ],
   },
 };

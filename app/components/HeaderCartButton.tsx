@@ -5,8 +5,9 @@ import { useCart } from "./CartContext";
 
 export default function HeaderCartButton() {
   const pathname = usePathname();
-  const { openDrawer, count } = useCart();
+  const { openDrawer, cart } = useCart();
   if (pathname === "/") return null;
+  const count = cart?.totalQuantity ?? 0;
   return (
     <button
       onClick={openDrawer}

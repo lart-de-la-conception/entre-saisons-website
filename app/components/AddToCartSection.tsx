@@ -7,32 +7,18 @@ import { useCart } from "./CartContext";
 type Props = {
   slug: string;
   name: string;
+  shopifyHandle: string;
   priceLabel?: string;
   sizes?: string[];
 };
 
-function parsePrice(priceLabel?: string): number {
-  if (!priceLabel) return 0;
-  const n = parseFloat(priceLabel.replace(/[^0-9.]/g, ""));
-  return isNaN(n) ? 0 : n;
-}
-
-export default function AddToCartSection({ slug, name, priceLabel, sizes = ["S", "M", "L"] }: Props) {
+export default function AddToCartSection({ slug, name, shopifyHandle, priceLabel, sizes = ["S", "M", "L"] }: Props) {
   const [size, setSize] = useState<string | null>(sizes[0] ?? null);
-  const { addItem, openDrawer } = useCart();
+  const { addByHandleAndSize, openDrawer, isLoading } = useCart();
 
-  function handleAdd() {
+  async function handleAdd() {
     if (!size || sizes.length === 0) return;
-    addItem(
-      {
-        slug,
-        name,
-        size,
-        price: parsePrice(priceLabel),
-        priceLabel: priceLabel ?? "",
-      },
-      1
-    );
+    await addByHandleAndSize(shopifyHandle, size, 1);
     openDrawer();
   }
 
@@ -53,9 +39,10 @@ export default function AddToCartSection({ slug, name, priceLabel, sizes = ["S",
         <button
           type="button"
           onClick={handleAdd}
-          className="inline-flex items-center bg-black px-5 py-3 text-xs font-semibold uppercase tracking-wide text-white"
+          disabled={isLoading}
+          className="inline-flex items-center bg-black px-5 py-3 text-xs font-semibold uppercase tracking-wide text-white disabled:opacity-60"
         >
-          {`Add to Cart${priceLabel ? ` — ${priceLabel}` : ""}`}
+          {isLoading ? "Adding…" : `Add to Cart${priceLabel ? ` — ${priceLabel}` : ""}`}
         </button>
       )}
     </div>

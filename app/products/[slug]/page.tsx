@@ -55,6 +55,7 @@ export default async function ProductDetail({ params }: PageProps) {
             <AddToCartSection
               slug={product.slug}
               name={product.name}
+              shopifyHandle={product.shopifyHandle}
               priceLabel={product.price}
             />
           </aside>
