@@ -37,7 +37,7 @@ export default function AddToCartSection({ slug, name, priceLabel, sizes = ["S",
   }
 
   return (
-    <div className="flex flex-col items-start gap-3 md:items-end">
+    <div className="flex flex-col items-center gap-3">
       {sizes.length > 0 && (
         <SizeSelector sizes={sizes} defaultSelected={sizes[0] ?? null} onChange={setSize} />
       )}

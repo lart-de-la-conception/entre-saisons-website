@@ -41,7 +41,7 @@ export default function Products() {
                     {p.variant}
                   </div>
                 )}
-                {p.price && (
+                {p.price && (!p.variant || p.variant.toLowerCase() !== "sold out") && (
                   <div className="mt-1 text-[11px] tracking-wider text-zinc-800">
                     {p.price}
                   </div>

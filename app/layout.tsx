@@ -6,6 +6,7 @@ import Link from "next/link";
 import { CartProvider } from "./components/CartContext";
 import CartDrawer from "./components/CartDrawer";
 import HeaderCartButton from "./components/HeaderCartButton";
+import AudioPlayer from "./components/AudioPlayer";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-geist-sans",
@@ -47,6 +48,7 @@ export default function RootLayout({
           </header>
           {children}
           <CartDrawer />
+          <AudioPlayer />
           <SiteFooter />
         </CartProvider>
       </body>
