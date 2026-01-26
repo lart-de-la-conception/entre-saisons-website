@@ -3,7 +3,6 @@
 import { useCart } from "./CartContext";
 import Image from "next/image";
 import comingSoon from "../../media/coming-soon.svg";
-import Link from "next/link";
 
 export default function CartDrawer() {
   const { isDrawerOpen, closeDrawer, cart, isLoading, updateLineQty, removeLine } = useCart();
@@ -115,13 +114,13 @@ export default function CartDrawer() {
                   ${Number(subtotal).toFixed(2)}
                 </span>
               </div>
-              <button
+              <a
+                href={cart?.checkoutUrl || "#"}
+                onClick={() => closeDrawer()}
                 className="block w-full bg-[#171717] py-5 text-center text-sm font-semibold uppercase tracking-wide text-white"
               >
-                <Link href="/checkout" onClick={closeDrawer} className="block w-full">
-                  Continue to Checkout
-                </Link>
-              </button>
+                Continue to Checkout
+              </a>
             </div>
           </div>
         )}
