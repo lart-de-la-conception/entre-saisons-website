@@ -16,6 +16,19 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Password-protecting `/products` (temporary gate)
+
+This project includes a simple password gate for the `/products` collection (and all `/products/*` routes).
+
+### Local setup
+
+Add these to your environment (for example in `.env.local`):
+
+- `PRODUCTS_PASSWORD`: the password you want to type on `/products/login`
+- `PRODUCTS_GATE_TOKEN`: a random string used as the auth cookie value (generate anything long-ish)
+
+After you set them, visit `/products` and you’ll be redirected to `/products/login`.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
