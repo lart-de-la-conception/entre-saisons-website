@@ -28,6 +28,7 @@ const TRACKS: Track[] = [
 
 export default function AudioPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const autoplayNextRef = useRef(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [blocked, setBlocked] = useState(false);
   const [index, setIndex] = useState(0);
@@ -40,7 +41,10 @@ export default function AudioPlayer() {
 
     const onPlay = () => setIsPlaying(true);
     const onPause = () => setIsPlaying(false);
-    const onEnded = () => setIndex((i) => (i + 1) % TRACKS.length);
+    const onEnded = () => {
+      autoplayNextRef.current = true;
+      setIndex((i) => (i + 1) % TRACKS.length);
+    };
     audio.addEventListener("play", onPlay);
     audio.addEventListener("pause", onPause);
     audio.addEventListener("ended", onEnded);
@@ -69,9 +73,11 @@ export default function AudioPlayer() {
     const track = TRACKS[index];
     if (!audio || !track) return;
     const wasPlaying = !audio.paused;
+    const shouldAutoplay = autoplayNextRef.current;
+    autoplayNextRef.current = false;
     audio.src = track.src;
     audio.load();
-    if (wasPlaying) {
+    if (wasPlaying || shouldAutoplay) {
       audio
         .play()
         .then(() => setBlocked(false))
