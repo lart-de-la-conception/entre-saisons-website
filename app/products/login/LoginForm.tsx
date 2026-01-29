@@ -1,13 +1,16 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-export default function LoginForm() {
+export default function LoginForm({
+  next,
+  misconfigured,
+}: {
+  next: string;
+  misconfigured: boolean;
+}) {
   const router = useRouter();
-  const sp = useSearchParams();
-  const next = sp.get("next") || "/products";
-  const misconfigured = sp.get("misconfigured") === "1";
 
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);

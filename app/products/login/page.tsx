@@ -3,7 +3,14 @@ import Link from "next/link";
 import LoginForm from "./LoginForm";
 import { products } from "../data";
 
-export default function ProductsLoginPage() {
+export default function ProductsLoginPage({
+  searchParams,
+}: {
+  searchParams?: { next?: string; misconfigured?: string };
+}) {
+  const next = typeof searchParams?.next === "string" ? searchParams.next : "/products";
+  const misconfigured = searchParams?.misconfigured === "1";
+
   return (
     <main className="relative min-h-[calc(100vh-88px)] bg-white">
       {/* Background: show the collection behind the gate */}
@@ -47,7 +54,7 @@ export default function ProductsLoginPage() {
 
       {/* Modal */}
       <div className="relative z-20 mx-auto flex min-h-[calc(100vh-88px)] max-w-screen-xl items-center justify-center px-6 py-24">
-        <LoginForm />
+        <LoginForm next={next} misconfigured={misconfigured} />
       </div>
     </main>
   );
