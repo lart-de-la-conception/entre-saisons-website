@@ -2,10 +2,10 @@ import Link from "next/link";
 
 export default function EthosPage() {
   return (
-    <main className="min-h-[calc(100svh-68px)] bg-white px-6 py-10 text-black">
+    <main className="min-h-[calc(100svh-68px)] bg-white px-4 py-10 text-black sm:px-6">
       <div className="mx-auto flex min-h-[calc(100svh-148px)] max-w-5xl items-center justify-center">
         <div className="max-w-4xl text-center">
-          <div className="space-y-8 text-[20px] font-extralight uppercase leading-[1.32] tracking-[0.02em] text-black/90 sm:text-[28px]">
+          <div className="space-y-8 text-[17px] font-extralight uppercase leading-[1.32] tracking-[0.02em] text-black/90 sm:text-[22px] md:text-[28px]">
             <p className="mb-8">
               Art in equal measure.
             </p>

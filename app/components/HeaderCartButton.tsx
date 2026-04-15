@@ -11,7 +11,7 @@ export default function HeaderCartButton() {
   return (
     <button
       onClick={openDrawer}
-      className="text-xs uppercase tracking-wide text-black hover:opacity-70"
+      className="whitespace-nowrap text-[10px] uppercase tracking-[0.08em] text-black hover:opacity-70 sm:text-xs"
       aria-label="Open cart"
     >
       Cart{count > 0 ? ` (${count})` : ""}

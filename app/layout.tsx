@@ -36,7 +36,7 @@ export default function RootLayout({
       <body className={`${bodoni.variable} ${geistMono.variable} antialiased`}>
         <CartProvider>
           <header className="relative w-full bg-white">
-            <div className="flex w-full items-center justify-between px-6 pt-5 pb-2">
+            <div className="flex w-full items-center justify-between px-4 pt-4 pb-2 sm:px-6 sm:pt-5">
               <div className="flex flex-col items-start text-[#0f1a2b]">
                 <Link
                   href="/"

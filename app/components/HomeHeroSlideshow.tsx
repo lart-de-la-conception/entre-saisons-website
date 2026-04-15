@@ -46,7 +46,7 @@ export default function HomeHeroSlideshow() {
   const activeSlide = slides[activeIndex];
 
   return (
-    <div className="relative mt-6 aspect-[4/5] w-full">
+    <div className="relative mt-6 aspect-[4/5] w-full max-h-[64svh] md:max-h-none">
       {activeSlide.type === "image" ? (
         <Image
           key={activeSlide.alt}

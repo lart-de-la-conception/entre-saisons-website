@@ -12,12 +12,12 @@ export default function TracklistPage() {
   ];
 
   return (
-    <main className="min-h-[calc(100svh-68px)] bg-white px-6 py-10 text-black">
+    <main className="min-h-[calc(100svh-68px)] bg-white px-4 py-10 text-black sm:px-6">
       <div className="mx-auto flex min-h-[calc(100svh-148px)] max-w-6xl flex-col items-center justify-center pt-14 text-center">
-        <h1 className="mb-14 text-[26px] font-semibold uppercase tracking-[0.04em] sm:text-[32px]">
+        <h1 className="mb-14 text-[24px] font-semibold uppercase tracking-[0.04em] sm:text-[28px] md:text-[32px]">
           Tracklist
         </h1>
-        <ol className="space-y-4 text-[19px] font-semibold uppercase tracking-[0.02em] sm:text-[24px]">
+        <ol className="space-y-4 text-[16px] font-semibold uppercase tracking-[0.02em] sm:text-[20px] md:text-[24px]">
           {tracks.map((track, index) => (
             <li key={track}>
               {index + 1}. {track}
