@@ -17,3 +17,13 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), serif;
 }
+
+::selection {
+  background: transparent;
+  color: #e10600;
+}
+
+::-moz-selection {
+  background: transparent;
+  color: #e10600;
+}

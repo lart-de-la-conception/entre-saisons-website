@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "**.r2.dev",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "media.entresaisons.com",
         pathname: "/**",
       },
