@@ -27,7 +27,7 @@ const slides: Slide[] = [
   { type: "image", src: `${MEDIA_BASE}/opening-scene-01.jpg`, alt: "Featured collection look four", className: "scale-110" },
   { type: "image", src: `${MEDIA_BASE}/paulie-chris-waiter.jpg`, alt: "Featured collection look five" },
   { type: "image", src: `${MEDIA_BASE}/sextape-disclaimer.png`, alt: "Featured collection look six", className: "scale-95" },
-  { type: "image", src: `${MEDIA_BASE}/sextape.png`, alt: "Featured collection look seven", className: "scale-95" },
+  // { type: "image", src: `${MEDIA_BASE}/sextape.png`, alt: "Featured collection look seven", className: "scale-95" },
 ];
 
 const ROTATION_MS = 1800;
@@ -46,7 +46,7 @@ export default function HomeHeroSlideshow() {
   const activeSlide = slides[activeIndex];
 
   return (
-    <div className="home-hero-slideshow relative mt-6 aspect-[4/5] w-full max-h-[64svh] md:max-h-none">
+    <div className="home-hero-slideshow relative mt-4 aspect-[4/5] w-full max-h-[70svh] sm:mt-6 sm:max-h-[74svh] md:max-h-none">
       {activeSlide.type === "image" ? (
         <Image
           key={activeSlide.alt}
@@ -55,7 +55,7 @@ export default function HomeHeroSlideshow() {
           unoptimized
           priority
           fill
-          sizes="(max-width: 768px) 100vw, 768px"
+          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 72vw, 560px"
           className={`object-contain object-center ${activeSlide.className ?? ""}`}
         />
       ) : (

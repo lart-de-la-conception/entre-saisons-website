@@ -5,18 +5,23 @@ export default function TracklistPage() {
     "Ibiza - Fakemink",
     "I'm Deranged - David Bowie",
     "Falling - Julee Cruise",
+    "Weightless - Brian Eno",
     "Waltz No .2 - Dmitri Shostakovich",
     "This Mess We're In - PJ Harvey",
     "I Wear Your Ring - Cocteau Twins",
     "Invisible Tears - Charles Manson",
+    "I Feel Like Dying - Lil Wayne",
   ];
 
   return (
     <main className="min-h-[calc(100svh-68px)] bg-white px-4 py-10 text-black sm:px-6">
       <div className="mx-auto flex min-h-[calc(100svh-148px)] max-w-6xl flex-col items-center justify-center pt-14 text-center">
-        <h1 className="mb-14 text-[24px] font-semibold uppercase tracking-[0.04em] sm:text-[28px] md:text-[32px]">
+        <h1 className="mb-3 text-[24px] font-semibold uppercase tracking-[0.04em] sm:text-[28px] md:text-[32px]">
           Tracklist
         </h1>
+        <p className="mb-14 text-[11px] font-light tracking-[0.06em] text-black/45 sm:text-[12px]">
+          some of the songs that inspired this collection
+        </p>
         <ol className="space-y-4 text-[16px] font-semibold uppercase tracking-[0.02em] sm:text-[20px] md:text-[24px]">
           {tracks.map((track, index) => (
             <li key={track}>
